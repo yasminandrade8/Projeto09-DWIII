@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nomeAluno": "Yasmin Andrade",
+    "email": "yasmin.andrade@gmail.com",
+    "salaId": 1,
+    "data": "2026-12-11",
+    "horarioInicial": "14:00",
+    "horarioFinal": "17:30",
+    "participantes": 15,
+    "finalidade": "Desenvolvimento do Projeto Integrador",
+    "status": "Ativa"
+  },
+  {
+    "id": 2,
+    "nomeAluno": "Daniel Felipe Ferreira",
+    "email": "danielferreira@hotmail.com",
+    "salaId": 2,
+    "data": "2026-12-11",
+    "horarioInicial": "09:00",
+    "horarioFinal": "11:00",
+    "participantes": 5,
+    "finalidade": "Reunião para estudos de Banco de Dados Relacional",
+    "status": "Ativa"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nome": "Laboratório de Desenvolvimento de Software",
+    "localizacao": "Bloco B - 2º Andar (Sala 204)",
+    "capacidade": 30,
+    "recursos": "30 Computadores, Projetor multimídia, Ar-condicionado, Lousa de vidro",
+    "status": "Disponível"
+  },
+  {
+    "id": 2,
+    "nome": "Sala de Estudos em Grupo 01",
+    "localizacao": "Biblioteca - Piso Térreo",
+    "capacidade": 6,
+    "recursos": "Mesa redonda, 6 cadeiras, Tomadas 110v/220v, TV Smart para espelhamento",
+    "status": "Disponível"
+  }
+]

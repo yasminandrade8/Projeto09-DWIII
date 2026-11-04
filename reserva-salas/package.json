@@ -1,0 +1,21 @@
+{
+  "name": "projeto09-dwiii",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasminandrade8/Projeto09-DWIII.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yasminandrade8/Projeto09-DWIII/issues"
+  },
+  "homepage": "https://github.com/yasminandrade8/Projeto09-DWIII#readme"
+}

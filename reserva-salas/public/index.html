@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Salas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏛️ Sistema de Reserva de Salas</h1>
+        <p>Gerencie salas, laboratórios e faça suas reservas acadêmicas.</p>
+    </header>
+
+    <main class="container">
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="mudarAba('reservas')">📅 Agendamentos</button>
+            <button class="tab-btn" onclick="mudarAba('salas')">🏢 Salas e Laboratórios</button>
+        </nav>
+
+        <div id="mensagem" class="mensagem hidden"></div>
+
+        <section id="aba-reservas" class="tab-content">
+            <div class="card">
+                <h2 id="formReservaTitulo">Nova Reserva</h2>
+                <div id="avisoFeriado" class="aviso-feriado hidden">⚠️ Atenção: A data selecionada é um Feriado Nacional!</div>
+                <form id="formReserva">
+                    <input type="hidden" id="resId">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Aluno Responsável *</label>
+                            <input type="text" id="resAluno" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail institucional</label>
+                            <input type="email" id="resEmail">
+                        </div>
+                        <div class="form-group">
+                            <label>Sala/Laboratório *</label>
+                            <select id="resSala" required><option value="">Carregando salas...</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Data *</label>
+                            <input type="date" id="resData" required onchange="verificarFeriadoBrasilAPI()">
+                        </div>
+                        <div class="form-group">
+                            <label>Horário Inicial *</label>
+                            <input type="time" id="resHoraIni" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Horário Final *</label>
+                            <input type="time" id="resHoraFim" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Qtd. Participantes *</label>
+                            <input type="number" id="resParticipantes" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="resStatus">
+                                <option value="Ativa">Ativa</option>
+                                <option value="Cancelada">Cancelada</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Finalidade Acadêmica</label>
+                            <input type="text" id="resFinalidade">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="btnSalvarRes">Salvar Reserva</button>
+                        <button type="button" class="btn-secondary hidden" id="btnCancRes" onclick="cancelarEdicaoReserva()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Reservas Efetuadas</h2>
+                <div class="table-responsive">
+                    <table id="tabelaReservas">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Horário</th>
+                                <th>Sala</th>
+                                <th>Responsável</th>
+                                <th>Participantes</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="aba-salas" class="tab-content hidden">
+            <div class="card">
+                <h2 id="formSalaTitulo">Cadastrar Sala</h2>
+                <form id="formSala">
+                    <input type="hidden" id="salaId">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nome / Identificação *</label>
+                            <input type="text" id="salaNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Localização (Bloco/Andar) *</label>
+                            <input type="text" id="salaLocal" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Capacidade Máxima *</label>
+                            <input type="number" id="salaCap" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Situação *</label>
+                            <select id="salaStatus" required>
+                                <option value="Disponível">Disponível</option>
+                                <option value="Inativa">Inativa</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Recursos (Projetor, Lousa, PCs)</label>
+                            <input type="text" id="salaRecursos">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="btnSalvarSala">Salvar Sala</button>
+                        <button type="button" class="btn-secondary hidden" id="btnCancSala" onclick="cancelarEdicaoSala()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Salas Cadastradas</h2>
+                <div class="table-responsive">
+                    <table id="tabelaSalas">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Identificação</th>
+                                <th>Localização</th>
+                                <th>Capacidade</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
